@@ -45,8 +45,13 @@ We can describe SLIs as:
 1. We got 99.98% uptime in the current year.
 2. 94% of the requests were completed in < 100 ms.
 
-## Creating SLI metrics.
-*TODO:* It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
+## Creating SLI metrics
+
+1. **Number of error responses in a period of time** - This metric could help us to identify possible bootlenecks and bugs.
+2. **The average time taken to return a request** - This metric could help us to identify opportunities to tune our services performance.
+3. **The average time taken recover a service if it goes down** - This metric could help us to measure our capacity to recover possible failovers.
+4. **Percentage of uptime in a period of time** - This metric could help us to measure the health of our services.
+5. **Average percentage of memory or CPU used by a service in a period of time** - This metric could help us to measure the impact of our services in the costs of maintaining a system and look for efficient services.
 
 ## Create a Dashboard to measure our SLIs
 *TODO:* Create a dashboard to measure the uptime of the frontend and backend services We will also want to measure to measure 40x and 50x errors. Create a dashboard that show these values over a 24 hour period and take a screenshot.
