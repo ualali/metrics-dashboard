@@ -14,17 +14,24 @@ Here are the main steps you'll carry out for this project:
 
 The process is summarized in the diagram below.
 
-![Monitoring installation screenshot](./answer-img/projectOverview.png)
+![Project diagram](./answer-img/projectOverview.png)
 
 ## Verify the monitoring installation
 
 ```shell
 $ kubectl get all --all-namespaces
 ```
+
 ![Monitoring installation screenshot](./answer-img/monitoringInstallation.png)
 
 ## Setup the Jaeger and Prometheus source
-*TODO:* Expose Grafana to the internet and then setup Prometheus as a data source. Provide a screenshot of the home page after logging into Grafana.
+
+```shell
+$ kubectl patch svc prometheus-grafana -n monitoring -p '{"spec": {"type": "LoadBalancer"}}'
+$ kubectl port-forward svc/prometheus-grafana --address 0.0.0.0 3000:80 -n monitoring
+```
+
+![Grafana](./answer-img/grafanaExposed.png)
 
 ## Create a Basic Dashboard
 *TODO:* Create a dashboard in Grafana that shows Prometheus as a source. Take a screenshot and include it here.
