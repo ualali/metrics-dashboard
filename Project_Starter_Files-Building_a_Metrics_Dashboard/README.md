@@ -36,7 +36,14 @@ $ kubectl port-forward svc/prometheus-grafana --address 0.0.0.0 3000:80 -n monit
 ![Prometheus Dashboard](./answer-img/basicDashboard.png)
 
 ## Describe SLO/SLI
-*TODO:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
+
+Suppose that these are our SLOs for *monthly uptime* and *request response time*:
+1. 99.99% uptime in the year.
+2. 95% of requests completed in < 100 ms.
+
+We can describe SLIs as:
+1. We got 99.98% uptime in the current year.
+2. 94% of the requests were completed in < 100 ms.
 
 ## Creating SLI metrics.
 *TODO:* It is important to know why we want to measure certain metrics for our customer. Describe in detail 5 metrics to measure these SLIs. 
