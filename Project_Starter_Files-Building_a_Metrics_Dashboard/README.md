@@ -1,8 +1,27 @@
-**Note:** For the screenshots, you can store all of your answer images in the `answer-img` directory.
+# Metrics Dashboard
+
+In this project, you will create dashboards that use multiple graphs to monitor our sample application that is deployed on a Kubernetes cluster. You will be using Prometheus, Jaeger, and Grafana in order to monitor, trace and visualize your experience.
+
+## Main Steps
+
+Here are the main steps you'll carry out for this project:
+
+    Deploy the sample application in your Kubernetes cluster.
+    Use Prometheus to monitor the various metrics of the application.
+    Use Jaeger to perform traces on the application.
+    Use Grafana in order to visualize these metrics in a series of graphs that can be shared with other members on your team.
+    Document your project in a README.
+
+The process is summarized in the diagram below.
+
+![Monitoring installation screenshot](./answer-img/projectOverview.png)
 
 ## Verify the monitoring installation
 
-*TODO:* run `kubectl` command to show the running pods and services for all components. Take a screenshot of the output and include it here to verify the installation
+```shell
+$ kubectl get all --all-namespaces
+```
+![Monitoring installation screenshot](./answer-img/monitoringInstallation.png)
 
 ## Setup the Jaeger and Prometheus source
 *TODO:* Expose Grafana to the internet and then setup Prometheus as a data source. Provide a screenshot of the home page after logging into Grafana.
