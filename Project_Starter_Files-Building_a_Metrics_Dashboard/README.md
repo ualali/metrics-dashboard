@@ -21,7 +21,6 @@ The process is summarized in the diagram below.
 ```shell
 $ kubectl get all --all-namespaces
 ```
-
 ![Monitoring installation screenshot](./answer-img/monitoringInstallation.png)
 
 ## Setup the Jaeger and Prometheus source
@@ -30,11 +29,11 @@ $ kubectl get all --all-namespaces
 $ kubectl patch svc prometheus-grafana -n monitoring -p '{"spec": {"type": "LoadBalancer"}}'
 $ kubectl port-forward svc/prometheus-grafana --address 0.0.0.0 3000:80 -n monitoring
 ```
-
 ![Grafana](./answer-img/grafanaExposed.png)
 
 ## Create a Basic Dashboard
-*TODO:* Create a dashboard in Grafana that shows Prometheus as a source. Take a screenshot and include it here.
+
+![Prometheus Dashboard](./answer-img/basicDashboard.png)
 
 ## Describe SLO/SLI
 *TODO:* Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
