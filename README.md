@@ -1,20 +1,31 @@
 # Metrics Dashboard
 
-In this project, you will create dashboards that use multiple graphs to monitor our sample application that is deployed on a Kubernetes cluster. You will be using Prometheus, Jaeger, and Grafana in order to monitor, trace and visualize your experience.
+Metrics Dashboard is a project that implements microservices observability using the Prometheus-Grafana-Jaeger stack. This is a project for the Udacity's Cloud Native Application Architecture Nanodegree.
 
-## Main Steps
+## Table of Contents
 
-Here are the main steps you'll carry out for this project:
++ [Table of Contents](#table-of-contents)
++ [Main steps](#main-steps)
++ [Verify the monitoring installation](#verify-the-monitoring-installation)
++ [Setup the Jaeger and Prometheus source](#setup-the-jaeger-and-prometheus-source)
++ [Create a basic dashboard](#create-a-basic-dashboard)
++ [Describe SLO/SLI](#describe-slosli)
++ [Creating SLI metrics](#creating-sli-metrics)
++ [Create a dashboard to measure our SLIs](#create-a-dashboard-to-measure-our-slis)
++ [Tracing our Flask app](#tracing-our-flask-app)
++ [Jaeger in dashboards](#jaeger-in-dashboards)
++ [Report error](#report-error)
++ [Creating SLIs and SLOs](#creating-slis-and-slos)
++ [Building KPIs for our plan](#building-kpis-for-our-plan)
++ [Final dashboard](#final-dashboard)
 
-    Deploy the sample application in your Kubernetes cluster.
-    Use Prometheus to monitor the various metrics of the application.
-    Use Jaeger to perform traces on the application.
-    Use Grafana in order to visualize these metrics in a series of graphs that can be shared with other members on your team.
-    Document your project in a README.
+## Main steps
 
-The process is summarized in the diagram below.
-
-![Project diagram](./answer-img/projectOverview.png)
+1. Deploy a sample application in your Kubernetes cluster.
+2. Use Prometheus to monitor the various metrics of the application.
+3. Use Jaeger to perform traces on the application.
+4. Use Grafana in order to visualize these metrics in a series of graphs that can be shared with other members on your team.
+5. Document the project in a README.
 
 ## Verify the monitoring installation
 
@@ -31,7 +42,7 @@ $ kubectl port-forward svc/prometheus-grafana --address 0.0.0.0 3000:80 -n monit
 ```
 ![Grafana](./answer-img/grafanaExposed.png)
 
-## Create a Basic Dashboard
+## Create a basic dashboard
 
 ![Prometheus Dashboard](./answer-img/basicDashboard.png)
 
@@ -53,19 +64,19 @@ We can describe SLIs as:
 4. **Percentage of uptime in a period of time** - This metric could help us to measure the health of our services.
 5. **Average percentage of memory or CPU used by a service in a period of time** - This metric could help us to measure the impact of our services in the costs of maintaining a system and look for efficient services.
 
-## Create a Dashboard to measure our SLIs
+## Create a dashboard to measure our SLIs
 
 ![Application Dashboard](./answer-img/applicationDashboard.png)
 
-## Tracing our Flask App
+## Tracing our Flask app
 
 ![Application Dashboard](./answer-img/jaegerUI.png)
 
-## Jaeger in Dashboards
+## Jaeger in dashboards
 
 ![Application Dashboard](./answer-img/tracingPanel.png)
 
-## Report Error
+## Report error
 *TODO:* Using the template below, write a trouble ticket for the developers, to explain the errors that you are seeing (400, 500, latency) and to let them know the file that is causing the issue.
 
 TROUBLE TICKET
@@ -101,5 +112,5 @@ SLIs:
 ## Building KPIs for our plan
 *TODO*: Now that we have our SLIs and SLOs, create KPIs to accurately measure these metrics. We will make a dashboard for this, but first write them down here.
 
-## Final Dashboard
+## Final dashboard
 *TODO*: Create a Dashboard containing graphs that capture all the metrics of your KPIs and adequately representing your SLIs and SLOs. Include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
