@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    app: backend
+  annotations:
+    "sidecar.jaegertracing.io/inject": "true"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: ualali/metrics-dashboard-backend:latest
+          imagePullPolicy: Always
+          ports:
+            - name: backendport
+              containerPort: 8080
+              protocol: TCP
