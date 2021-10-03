@@ -1,15 +1,13 @@
-# Use the official Python image.
-# https://hub.docker.com/_/python
+# Use the official Python image (https://hub.docker.com/_/python).
 FROM python:3.7-slim
 
 # Copy local code to the container image.
-ENV APP_HOME /app
-WORKDIR $APP_HOME
-COPY . ./
+COPY . /app
+WORKDIR /app
 
-# Install production dependencies.
-RUN apt-get update && \
-    pip install --upgrade pip && \
+# Install dependencies.
+RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
+# Start application server.
 CMD ["gunicorn", "--access-logfile", "-", "--error-logfile", "-", "-w", "4", "-b", "0.0.0.0:8080", "app:app"]

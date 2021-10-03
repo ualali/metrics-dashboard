@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: frontend
+  annotations:
+    "sidecar.jaegertracing.io/inject": "true"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: ualali/metrics-dashboard-frontend:latest
+          imagePullPolicy: Always
+          ports:
+            - name: frontendport
+              containerPort: 8080
+              protocol: TCP

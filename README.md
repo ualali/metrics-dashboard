@@ -29,22 +29,15 @@ Metrics Dashboard is a project that implements microservices observability using
 
 ## Verify the monitoring installation
 
-```shell
-$ kubectl get all --all-namespaces
-```
-![Monitoring installation screenshot](./answer-img/monitoringInstallation.png)
+![Cluster resources](./docs/images/monitoringInstallation.png)
 
 ## Setup the Jaeger and Prometheus source
 
-```shell
-$ kubectl patch svc prometheus-grafana -n monitoring -p '{"spec": {"type": "LoadBalancer"}}'
-$ kubectl port-forward svc/prometheus-grafana --address 0.0.0.0 3000:80 -n monitoring
-```
-![Grafana](./answer-img/grafanaExposed.png)
+![Grafana](./docs/images/grafana.png)
 
 ## Create a basic dashboard
 
-![Prometheus Dashboard](./answer-img/basicDashboard.png)
+![Prometheus Dashboard](./docs/images/prometheusDashboard.png)
 
 ## Describe SLO/SLI
 
@@ -66,7 +59,7 @@ We can describe SLIs as:
 
 ## Create a dashboard to measure our SLIs
 
-![Application Dashboard](./answer-img/applicationDashboard.png)
+![HTTP errors panel](./docs/images/httpErrorsPanel.png)
 
 ## Tracing our Flask app
 
@@ -77,22 +70,20 @@ We can describe SLIs as:
 ![Grafana tracing panel](./docs/images/tracingPanel.png)
 
 ## Report error
-*TODO:* Using the template below, write a trouble ticket for the developers, to explain the errors that you are seeing (400, 500, latency) and to let them know the file that is causing the issue.
 
-TROUBLE TICKET
+```markdown
+**TROUBLE TICKET**
 
-Name: 
+**Name**: Franky River
+**Date**: 09/27/2021 5:15:10 PM
+**Subject**: Front-end service is creating many 40x and 50x errors
+**Affected Area**: API requests
+**Severity**: High
 
-Date:
-
-Subject:
-
-Affected Area:
-
-Severity:
-
-Description:
-
+**Description**:
+The `static/js/click.js` file is not handling clicks correctly and requests can not be processed because the
+fetch url are not right.
+```
 
 ## Creating SLIs and SLOs
 
@@ -110,7 +101,15 @@ SLIs:
 2. We got 2 minutes downtime in the past week for the current month.
 
 ## Building KPIs for our plan
-*TODO*: Now that we have our SLIs and SLOs, create KPIs to accurately measure these metrics. We will make a dashboard for this, but first write them down here.
+
+1. Network pressure
+2. Cluster usage
+3. CPU usage
 
 ## Final dashboard
-*TODO*: Create a Dashboard containing graphs that capture all the metrics of your KPIs and adequately representing your SLIs and SLOs. Include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
+
+![KPI monitoring dashboard](./docs/images/kpiDashboard.png)
+
+1. The Network I/O Pressure panel displays information about the amount of data received and sent from the cluster.
+2. The Total usage group of panels display information about the memory usage, the CPU usage and the filesystem usage in the cluster. It displays metrics in GiB.
+3. The Containers CPU usage displays the amount cores used by all the containers in our cluster.
