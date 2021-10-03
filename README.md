@@ -70,11 +70,11 @@ We can describe SLIs as:
 
 ## Tracing our Flask app
 
-![Application Dashboard](./answer-img/jaegerUI.png)
+![Jaeger UI](./docs/images/backendTracing.png)
 
 ## Jaeger in dashboards
 
-![Application Dashboard](./answer-img/tracingPanel.png)
+![Grafana tracing panel](./docs/images/tracingPanel.png)
 
 ## Report error
 *TODO:* Using the template below, write a trouble ticket for the developers, to explain the errors that you are seeing (400, 500, latency) and to let them know the file that is causing the issue.
