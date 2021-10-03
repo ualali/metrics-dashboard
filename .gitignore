@@ -3,6 +3,7 @@ project/.vagrant/
 
 # Ignore Python environment
 project/.python/
+project/app/**/__pycache__/
 
 # Ignore Visual Studio Code Workspace settings
 .vscode
