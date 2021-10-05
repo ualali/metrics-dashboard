@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: trial
+  labels:
+    app: trial
+spec:
+  selector:
+    app: trial
+  ports:
+    - name: trial
+      protocol: TCP
+      port: 8082
+      targetPort: trialport
+  type: LoadBalancer
