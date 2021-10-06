@@ -87,29 +87,39 @@ fetch url are not right.
 
 ## Creating SLIs and SLOs
 
-SLO: 99.95% uptime per month.
-
-Our SLO corresponds to the following periods of allowed downtime/unavailability:
-* Daily: 43s
-* Weekly: 5m 2s
-* Monthly: 21m 54s
-* Quarterly: 1h 5m 44s
-* Yearly: 4h 22m 58s
-
 SLIs:
-1. We got less than 21 minutes of downtime in the last month.
-2. We got 2 minutes downtime in the past week for the current month.
+1. We got less than 10 error responses in the last 24 hours.
+2. We got an average response time of < 2000ms per minute.
+3. We got 75% more successful responses than errors.
+4. 99% of our responses had the right data format.
+
+SLO:
+1. 99.9% uptime per month.
+2. 99.9% of responses to our front-service will return 2xx, 3xx or 4xx HTTP code within 2000 ms.
+3. 99.99% of transaction requests will succeed over any calendar month.
+4. 99.9% of backend service requests will succeed on their first attempt.
 
 ## Building KPIs for our plan
 
-1. Network pressure
-2. Cluster usage
-3. CPU usage
+1. We got less than 10 error responses in the last 24 hours.
+    + Successful requests per minute:  this KPI indicates how well is performed our system.
+    + Error requests per minute: this KPI is an analogous of this SLI.
+    + Uptime - this KPI indicates if errors are comming from downtime or not.
+2. We got an average response time of < 2000ms in the las 24 hours.
+    + Average response time:  this KPI is an analogous of this SLI.
+    + Uptime - this KPI will help us to determine if response time is affected by downtime of a service.
+3. We got 75% more successful responses than errors.
+    + Successful requests per minute:  this KPI indicates the number of successful request.
+    + Error requests per minute: this KPI indicates the number of error requests.
 
 ## Final dashboard
 
-![KPI monitoring dashboard](./docs/images/kpiDashboard.png)
+![KPI monitoring dashboard](./docs/images/finalDashboard.png)
 
-1. The Network I/O Pressure panel displays information about the amount of data received and sent from the cluster.
-2. The Total usage group of panels display information about the memory usage, the CPU usage and the filesystem usage in the cluster. It displays metrics in GiB.
-3. The Containers CPU usage displays the amount cores used by all the containers in our cluster.
++ Application stats panel - This panel shows information about the application services.
++ Successful requests per minute - This panel shows the total number of successful requests per service.
++ Error requests per minute - This panel shows the total number of 40x and 50x error requests per service.
++ Average response time per minute - This panel shows the average response time successful requests (status 200) per service.
++ Average memory used per minute - This panel shows the average memory used by each service.
++ Average CPU used per minute - This panel shows the average CPU used by each service.
++ Network I/O Pressure - This panel shows the amount of I/O operations per minute in the node.
