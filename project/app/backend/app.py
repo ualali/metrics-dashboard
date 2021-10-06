@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request
 from flask_opentracing import FlaskTracer
 from flask_pymongo import PyMongo
 from jaeger_client import Config
-from prometheus_flask_exporter import PrometheusMetrics
+from prometheus_flask_exporter.multiprocess import GunicornInternalPrometheusMetrics
 
 import json
 import logging
@@ -34,7 +34,7 @@ mongo = PyMongo(app)
 flask_tracer = FlaskTracer(initialize_tracer, True, app)
 flask_tracer_span = flask_tracer.get_span()
 
-metrics = PrometheusMetrics(app)
+metrics = GunicornInternalPrometheusMetrics(app)
 
 
 @app.route("/")

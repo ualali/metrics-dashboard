@@ -52,14 +52,14 @@ We can describe SLIs as:
 ## Creating SLI metrics
 
 1. **Number of error responses in a period of time** - This metric could help us to identify possible bootlenecks and bugs.
-2. **The average time taken to return a request** - This metric could help us to identify opportunities to tune our services performance.
+2. **The average time taken to return a response** - This metric could help us to identify opportunities to tune our services performance.
 3. **The average time taken recover a service if it goes down** - This metric could help us to measure our capacity to recover possible failovers.
-4. **Percentage of uptime in a period of time** - This metric could help us to measure the health of our services.
+4. **Total uptime in a period of time** - This metric could help us to measure the health of our services.
 5. **Average percentage of memory or CPU used by a service in a period of time** - This metric could help us to measure the impact of our services in the costs of maintaining a system and look for efficient services.
 
 ## Create a dashboard to measure our SLIs
 
-![HTTP errors panel](./docs/images/httpErrorsPanel.png)
+![SLIs panel](./docs/images/sliPanel.png)
 
 ## Tracing our Flask app
 
